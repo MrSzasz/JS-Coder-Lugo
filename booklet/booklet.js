@@ -206,6 +206,7 @@ alert(nombres);
 
 */
 
+
 // Solicitar al usuario la carga de nombres de forma consecutiva,  hasta que se ingrese “Voldemort”.
 // Luego realizar un única salida por alerta, con todos los nombres ingresados.
 
@@ -220,6 +221,7 @@ while (nombres != 'voldemort') {
 alert(lista);
 
 */
+
 
 // Solicitar al usuario un (1) número de forma consecutiva, hasta que se ingrese “ESC”. Generar una única salida compuesta por los siguientes productos, según el valor ingresado en cada ciclo:
 // “Tomate” si es 1.
@@ -254,3 +256,195 @@ while (numero != 'ESC') {
 */
 
 // ============================================== BOOKLET 4 ==================================================
+
+// Codificar tres funciones:
+//      Una función entrada(), la cual solicite un valor al usuario y lo retorne.
+//      Una función procesamiento(valor), donde se transforme la entrada.
+//      Una función salida(valor), la cual mostrará el resultado por alerta.
+// Luego, invocar las tres funciones.
+
+/*
+
+function entrada() {
+    return prompt('ingrese un valor');
+}
+
+function procesamiento(valor) {
+    return `el valor ingresado es: ${valor}`;
+}
+
+// const procesamiento = (valor) =>{return `el valor ingresado es: ${valor}`;};
+
+function salida(valor) {
+    alert(valor);
+};
+salida(procesamiento(entrada()));
+
+ */
+
+
+// Codificar una función que reciba un número decimal por parámetro, y lo retorne redondeado al entero más cercano. Para ello, puede emplearse  Math.round.
+// Luego invocar la función de forma iterativa cinco (5) veces, solicitando en cada ciclo un número al usuario.
+
+/*
+
+function entrada() {
+    return Math.round(prompt('ingrese un valor'));
+}
+for (let i = 1; i <= 5; i++) {
+    console.log(entrada());
+}
+ 
+*/
+
+
+// Codificar una función con la siguiente cabecera: impuesto(precio, porcentaje). En ella, se retorna un valor numérico compuesto por el precio recibido, más la suma del porcentaje ingresado.
+// Luego invocar la función de forma iterativa cinco (5) veces, solicitando en cada ciclo un precio y porcentaje al usuario.
+
+/*
+
+function impuesto(precio, porcentaje) {
+    precio = parseFloat(prompt('ingrese el precio'));
+    porcentaje = parseFloat(prompt('ingrese el porcentaje'));
+    let total = precio + ((precio * porcentaje) / 100);
+    return total;
+}
+for (let i = 1; i <= 5; i++) {
+    console.log(impuesto());
+}
+
+*/
+
+
+// Codificar dos funciones:
+// Una función cotizarDolar(pesos), la cual recibe un valor monetario en pesos argentinos, y lo retorna en su equivalente en dólares.
+// Una función cotizarPesos(dolar), que recibe un valor monetario en dólares, y lo retorna en su equivalente en pesos argentinos.
+// Luego invocar las funciones solicitando  al usuario el valor y el tipo de cotización a realizar.
+
+/*
+
+let cantidad = prompt('ingrese una cantidad');
+let tipo = prompt('valor en dolares o pesos?');
+switch (tipo) {
+    case 'dolares':
+        function cotizarPesos(dolar) {
+            return dolar * 106.52;
+        }
+        cotizarPesos();
+        console.log(cotizarPesos(cantidad));
+        break;
+    case 'pesos':
+        function cotizarDolar(pesos) {
+            return pesos * 0.0094;
+        }
+        cotizarDolar();
+        console.log(cotizarDolar(cantidad));
+        break;
+    default:
+        console.log('ERROR!');
+}
+ 
+*/
+
+
+// Codificar una función con la siguiente cabecera: validacion(cadena). En ella, se retorna un valor booleano, el cual es true si el parámetro no es un cadena vacía. Caso contrario, se retorna false. Luego invocar la función de forma iterativa, hasta que el usuario tipee “ESC”, solicitando en cada ciclo una cadena a validar.
+
+/*
+
+let texto = prompt('ingrese un texto');
+
+function validacion(cadena) {
+    if (cadena != '') {
+        return true;
+    } else {
+        return false;
+    }
+}
+while (texto != 'ESC') {
+    console.log(validacion(texto));
+    texto = prompt('ingrese un texto');
+}
+
+*/
+
+
+// ============================================== BOOKLET 5 ==================================================
+
+// Declarar un clase Tienda que permita registrar:
+// Nombre de la tienda.
+// Dirección de la tienda.
+// Propietario de la tienda.
+// Rubro de la tienda.
+// Luego invocar al menos tres (3) objetos usando esta clase.
+
+/*
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+// Solicitar al usuario el registro de cinco (5) tiendas.
+// Emplear la clase Tienda de la actividad 1, para instanciar los objetos en función de las entradas capturadas. Generar una única salida compuesta por la información de los objetos instanciados.
+
+/*
+
+
+
+*/
+
+
+
+
+
+
+
+// Declarar un método para la clase Tienda con la siguiente cabecera estaAbierto(hora). Este retorna true si la hora enviada está entre las 08 y 12, o entre las 15 y 19. Caso contrario, se retorna false.
+// Luego invocar al menos un (1) objeto usando esta clase, y solicitar al usuario tres (3) horas. Informar por alerta si la tienda está abierta, en función de la hora ingresada.
+
+/*
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+// Declarar un método para la clase Tienda con la siguiente cabecera esPropietario(nombre). Se retorna true si el nombre enviado corresponde al propietario de la tienda.Caso contrario, se retorna false.
+// Luego, invocar al menos tres(3) objetos usando esta clase y solicitar al usuario cinco(5) nombres. Informar por alerta si los nombres pertenecen a algún dueño de tienda.
+
+/*
+
+
+
+*/
+
+
+
+
+
+
+// Declarar una clase Cliente que permita:
+// Registrar nombre, presupuesto, si tiene tarjeta de descuento, y número de teléfono del cliente.
+// Un método transferirDinero(valor), que permita  obtener y restar cierta cantidad del presupuesto, siempre que este parámetro sea menor al valor enviado, y mayor que cero.
+// Luego invocar al menos tres (3) objetos usando esta clase, y solicitar al usuario cinco (5) números. Informar por alerta si cada uno de los clientes cuenta con el presupuesto suficiente para realizar una transferencia de igual monto al ingresado.
+
+/*
+
+
+
+*/
