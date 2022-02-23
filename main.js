@@ -428,8 +428,132 @@ for (let contador = 0; contador < maximo; contador++) {
 // sumar los numeros
 // mostrar resultados
 
-// let cantidad = (parseInt(prompt('cuantos numeros vas a usar?')));
+// const cantidad = parseInt(prompt('cuantos numeros vas a usar?'));
+// let resultado = 0;
 // for (let i = 0; i < cantidad; i++) {
 //     let numero = (parseInt(prompt('ingresa un numero')));
 //     console.log(numero);
 // }
+
+// const cantidad = parseInt(prompt("Ingresa los números que quieras operar"));
+// let resultado = 0;
+// let contador = 0;
+// while (contador < cantidad) {
+//     let num = parseInt(prompt("Ingresa otro número"));
+//     resultado = resultado + num;
+//     contador = contador + 1;
+// }
+
+// alert(resultado);
+
+// function datos(nombre, apellido, edad) {
+//     this.nombre = nombre,
+//         this.apellido = apellido,
+//         this.edad = edad
+// }
+// const datos1 = new datos('leo', 'lugo', 22);
+// const datos2 = new datos('zoe', 'lanz', 28);
+// const datos3 = new datos(prompt('ingrese nombre'), prompt('ingrese apellido'), prompt('ingrese edad'));
+// console.log(datos1, datos2, datos3);
+
+// --------------------CICLO FOR-------------------------
+
+// alarma 
+
+
+// let desayuno = 8
+
+// for(let i=desayuno; i<=11; i++){
+
+//     alert ("son las " +i+ ": Es hora de desayunar")  
+// }
+
+// let almuerzo = 13
+// for(let i=almuerzo; i<=15; i++){
+
+//     alert ("son las " +i+ " horas"+ " : Es hora de almorzar")  
+// }
+
+// let merienda = 17
+
+// for(let i=merienda; i<=19; i++){
+
+//     alert ("son las " +i+ " horas"+ " : Es hora de merendar")  
+// }
+
+// let cena = 21
+
+// for(let i=cena; i<=23; i++){
+
+//     alert ("son las " +i+ " horas"+ " : Es hora de cenar")  
+// }
+
+
+// for (let hora = 0; hora <= 24; hora++) {
+//     if (hora >= 0 && hora <= 9) {
+//         console.log(`Shhh, son las ${hora}, deberias estar durmiendo`);
+//     } else if (hora > 9 && hora <= 12) {
+//         console.log(`Son las ${hora}, a desayunar`);
+//     } else if (hora >= 13 && hora <= 16) {
+//         console.log(`Son las ${hora}, a almorzar`);
+//     } else if (hora >= 17 && hora <= 20) {
+//         console.log(`Son las ${hora}, a merendar`);
+//     } else if (hora >= 21 && hora <= 24) {
+//         console.log(`Son las ${hora}, a dormir let's go`);
+//     } else {
+//         console.log(`fuera de horario`);
+//     }
+// }
+
+// function Persona(nombre, apellido) {
+//     this.nombre = nombre;
+//     this.apellido = apellido;
+//     this.hablar = function () {
+//         console.log("HOLA SOY " + this.nombre)
+//     }
+// }
+// const persona1 = new Persona("Homero", "Simpson");
+// persona1.hablar();
+
+// class Calculadora {
+//     constructor(n1, n2) {
+//         this.n1 = n1;
+//         this.n2 = n2;
+//     }
+//     sumarNum(n1, n2) {
+//         return n1 + n2;
+//     }
+// }
+// const dato1 = new Calculadora(2,3);
+// Calculadora.sumarNum
+
+
+
+alert("USTED ESTA POR COMPRAR OBRAS DE LA ARTISTA MERCEDES LLANOS!");
+alert("EL VALOR POR CUADRO ES DE U$S1500, EN CASO ELIJA MAS DE 3 SERA DE U$S1350 Y EN CASO ELIJA MAS DE 5 SERA DE U$S1250 ");
+
+let cantidadCuadros;
+let precioCuadros = 1500;
+let precioCuadros2 = 1350;
+let precioCuadros3 = 1250;
+
+function operacion(a, b) {
+    return a * b;
+}
+
+while (!isNaN(cantidadCuadros) || cantidadCuadros != '') {
+    cantidadCuadros = parseInt(prompt("INGRESE LA CANTIDAD DE CUADROS QUE DESEA COMPRAR"));
+    if (cantidadCuadros >= 0 && cantidadCuadros < 3) {
+        alert("El total es: " + operacion(cantidadCuadros, precioCuadros) + " dolares");
+        break;
+    } else if (cantidadCuadros >= 3 && cantidadCuadros < 5) {
+        alert("El total es: " + operacion(cantidadCuadros, precioCuadros2) + " dolares");
+        break;
+    } else if (cantidadCuadros >= 5) {
+        alert("El total es: " + operacion(cantidadCuadros, precioCuadros3) + " dolares");
+        break;
+    } else {
+        alert("NUMERO INVALIDO");
+        continue;
+    }
+}
