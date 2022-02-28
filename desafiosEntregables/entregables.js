@@ -113,6 +113,8 @@ Agregar arrays a tu proyecto.
 
 */
 
+
+// Clase y constructor para cada propiedad
 class Houses {
     constructor(name, id, address, price, size, bedrooms) {
         this.name = name;
@@ -124,17 +126,22 @@ class Houses {
         this.sold = false;
     }
     soldStatus() {
+        // Cambia el estado a vendido de x propiedad
         this.sold = true;
     }
 }
 
+// Lista que agrupa todas las propiedades
 const houseList = [];
 
+// Funcion para crear y pushear propiedades al array
 function addHouse(name, id, address, price, size, bedrooms) {
     houseList.push(new Houses(name, id, address, price, size, bedrooms));
 }
 
 let cantidad = Number(prompt('Bienvenido al gestor de propiedades, ¿cuantas propiedades agregará?'));
+
+// Loop para agregar propiedades dependiendo de la cantidad ingresada
 for (i = 0; i < cantidad; i++) {
     addHouse(
         prompt('Ingrese el nombre').toUpperCase(),
@@ -144,6 +151,7 @@ for (i = 0; i < cantidad; i++) {
         prompt('Ingrese el tamaño (numero seguido de m2)').toUpperCase(),
         Number(prompt('Ingrese la cantidad de habitaciones')));
     alert(`Propiedad N${i+1} agregada`);
+    // Cambia el estado de la propiedad
     let vendida = prompt('¿Está vendida?').toUpperCase();
     if (vendida == 'SI') {
         houseList[i].soldStatus();
