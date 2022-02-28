@@ -166,3 +166,6 @@ do {
 } while (isNaN(cantidad) || cantidad < 0);
 
 console.table(houseList);
+
+// Imprime la cantidad total de elementos (propiedades) en el array
+console.log('Hay un total de ' + houseList.length + ' propiedades en la lista');
