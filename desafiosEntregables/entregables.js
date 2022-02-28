@@ -107,7 +107,7 @@ Algoritmo condicional (IF), un ciclo (FOR/WHILE) y function
 
 //  ==============================================  DESAFIO 3  ============================================
 
-/*
+/* INCORPORAR ARRAYS:
 
 Agregar arrays a tu proyecto.
 
@@ -139,23 +139,30 @@ function addHouse(name, id, address, price, size, bedrooms) {
     houseList.push(new Houses(name, id, address, price, size, bedrooms));
 }
 
-let cantidad = Number(prompt('Bienvenido al gestor de propiedades, ¿cuantas propiedades agregará?'));
+let cantidad;
 
 // Loop para agregar propiedades dependiendo de la cantidad ingresada
-for (i = 0; i < cantidad; i++) {
-    addHouse(
-        prompt('Ingrese el nombre').toUpperCase(),
-        prompt('Ingrese el ID').toUpperCase(),
-        prompt('Ingrese la direccion').toUpperCase(),
-        Number(prompt('Ingrese el precio (solo numero)')),
-        prompt('Ingrese el tamaño (numero seguido de m2)').toUpperCase(),
-        Number(prompt('Ingrese la cantidad de habitaciones')));
-    alert(`Propiedad N${i+1} agregada`);
-    // Cambia el estado de la propiedad
-    let vendida = prompt('¿Está vendida?').toUpperCase();
-    if (vendida == 'SI') {
-        houseList[i].soldStatus();
+do {
+    cantidad = Number(prompt('Bienvenido al gestor de propiedades, ¿cuantas propiedades agregará?'));
+    if (!isNaN(cantidad) && cantidad > 0) {
+        for (i = 0; i < cantidad; i++) {
+            addHouse(
+                prompt('Ingrese el nombre').toUpperCase(),
+                prompt('Ingrese el ID').toUpperCase(),
+                prompt('Ingrese la direccion').toUpperCase(),
+                Number(prompt('Ingrese el precio (solo numero)')),
+                prompt('Ingrese el tamaño (numero seguido de m2)').toUpperCase(),
+                Number(prompt('Ingrese la cantidad de habitaciones')));
+            // Cambia el estado de la propiedad
+            let vendida = prompt('¿Está vendida?').toUpperCase();
+            if (vendida == 'SI') {
+                houseList[i].soldStatus();
+            }
+            alert(`Propiedad N${i+1} agregada`);
+        };
+    } else {
+        alert('Numero invalido');
     }
-};
+} while (isNaN(cantidad) || cantidad < 0);
 
 console.table(houseList);
