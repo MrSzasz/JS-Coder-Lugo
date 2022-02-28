@@ -527,33 +527,38 @@ for (let contador = 0; contador < maximo; contador++) {
 // const dato1 = new Calculadora(2,3);
 // Calculadora.sumarNum
 
+// const miArray = ['uno', 'dos', 3, 4, true, false, 'hola'];
+// console.log(miArray.reverse());
 
 
-alert("USTED ESTA POR COMPRAR OBRAS DE LA ARTISTA MERCEDES LLANOS!");
-alert("EL VALOR POR CUADRO ES DE U$S1500, EN CASO ELIJA MAS DE 3 SERA DE U$S1350 Y EN CASO ELIJA MAS DE 5 SERA DE U$S1250 ");
-
-let cantidadCuadros;
-let precioCuadros = 1500;
-let precioCuadros2 = 1350;
-let precioCuadros3 = 1250;
-
-function operacion(a, b) {
-    return a * b;
-}
-
-while (!isNaN(cantidadCuadros) || cantidadCuadros != '') {
-    cantidadCuadros = parseInt(prompt("INGRESE LA CANTIDAD DE CUADROS QUE DESEA COMPRAR"));
-    if (cantidadCuadros >= 0 && cantidadCuadros < 3) {
-        alert("El total es: " + operacion(cantidadCuadros, precioCuadros) + " dolares");
-        break;
-    } else if (cantidadCuadros >= 3 && cantidadCuadros < 5) {
-        alert("El total es: " + operacion(cantidadCuadros, precioCuadros2) + " dolares");
-        break;
-    } else if (cantidadCuadros >= 5) {
-        alert("El total es: " + operacion(cantidadCuadros, precioCuadros3) + " dolares");
-        break;
-    } else {
-        alert("NUMERO INVALIDO");
-        continue;
+class Houses {
+    constructor(name, id, address, price, size, bedrooms, sold = false) {
+        this.name = name;
+        this.id = id;
+        this.address = address;
+        this.price = price;
+        this.size = size;
+        this.bedrooms = bedrooms;
+        this.sold = sold;
+    }
+    soldStatus() {
+        this.sold = true;
     }
 }
+
+const houseList = [];
+
+function addHouse(funName, funId, funAddress, funPrice, funSize, funBedrooms) {
+    let house = new Houses(funName, funId, funAddress, funPrice, funSize, funBedrooms);
+    houseList.push(house);
+}
+let house1 = addHouse('village', 4536251, '14 val ST.', 1500000, '100m2', 3);
+
+let house2 = addHouse('mansion', 7658735, '16 val ST.', 2000000, '250m2', 5);
+
+console.log(houseList);
+
+for (const house of houseList) {
+    Houses.soldStatus();
+}
+console.log(houseList);

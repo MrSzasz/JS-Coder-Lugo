@@ -55,52 +55,99 @@ Algoritmo condicional (IF), un ciclo (FOR/WHILE) y function
     1.3) Si es otra cosa, volver a pedir una entrada valida
 */
 
-alert('La nueva moneda (M$) es la moneda base en las instalaciones de Marte, aqui mismo podras calcular su precio en base a tu moneda!');
+// alert('La nueva moneda (M$) es la moneda base en las instalaciones de Marte, aqui mismo podras calcular su precio en base a tu moneda!');
 
-let moneda;
-let cantidad;
+// let moneda;
+// let cantidad;
 
-function calcularPesos(peso) {
-    let totalM = (peso * 0.0066);
-    alert(`AR$${peso} es equivalente a M$${totalM}`);
-}
+// function calcularPesos(peso) {
+//     let totalM = (peso * 0.0066);
+//     alert(`AR$${peso} es equivalente a M$${totalM}`);
+// }
 
-function calcularMarslar(mars) {
-    let totalP = (mars * 151);
-    alert(`M$${mars} es equivalente a AR$${totalP}`);
-}
+// function calcularMarslar(mars) {
+//     let totalP = (mars * 151);
+//     alert(`M$${mars} es equivalente a AR$${totalP}`);
+// }
 
-function pedirDatos() {
-    return moneda = prompt('Ingrese PESOS o MARS dependiendo de que moneda quiere convertir.');
-}
+// function pedirDatos() {
+//     return moneda = prompt('Ingrese PESOS o MARS dependiendo de que moneda quiere convertir.');
+// }
 
-function pedirCantidad() {
-    return cantidad = parseFloat(prompt('Ingrese la cantidad.'));
-}
+// function pedirCantidad() {
+//     return cantidad = parseFloat(prompt('Ingrese la cantidad.'));
+// }
 
-pedirDatos();
+// pedirDatos();
 
-do {
-    if (moneda == 'PESOS' || moneda == 'pesos') {
-        pedirCantidad();
-        if (isNaN(cantidad)) {
-            alert('Ingrese un numero valido');
-        } else {
-            calcularPesos(cantidad);
-            break;
-        }
-    } else if (moneda == 'MARS' || moneda == 'mars') {
-        pedirCantidad();
-        if (isNaN(cantidad)) {
-            alert('Ingrese un numero valido');
-        } else {
-            calcularMarslar(cantidad);
-            break;
-        }
-    } else {
-        alert('entrada invalida');
-        pedirDatos();
+// do {
+//     if (moneda == 'PESOS' || moneda == 'pesos') {
+//         pedirCantidad();
+//         if (isNaN(cantidad)) {
+//             alert('Ingrese un numero valido');
+//         } else {
+//             calcularPesos(cantidad);
+//             break;
+//         }
+//     } else if (moneda == 'MARS' || moneda == 'mars') {
+//         pedirCantidad();
+//         if (isNaN(cantidad)) {
+//             alert('Ingrese un numero valido');
+//         } else {
+//             calcularMarslar(cantidad);
+//             break;
+//         }
+//     } else {
+//         alert('entrada invalida');
+//         pedirDatos();
+//     }
+// }
+// while (moneda != 'PESOS' || moneda != 'pesos' || moneda != 'MARS' || moneda != 'mars');
+
+
+//  ==============================================  DESAFIO 3  ============================================
+
+/*
+
+Agregar arrays a tu proyecto.
+
+*/
+
+class Houses {
+    constructor(name, id, address, price, size, bedrooms) {
+        this.name = name;
+        this.id = id;
+        this.address = address;
+        this.price = price;
+        this.size = size;
+        this.bedrooms = bedrooms;
+        this.sold = false;
+    }
+    soldStatus() {
+        this.sold = true;
     }
 }
-while (moneda != 'PESOS' || moneda != 'pesos' || moneda != 'MARS' || moneda != 'mars');
 
+const houseList = [];
+
+function addHouse(name, id, address, price, size, bedrooms) {
+    houseList.push(new Houses(name, id, address, price, size, bedrooms));
+}
+
+let cantidad = Number(prompt('Bienvenido al gestor de propiedades, ¿cuantas propiedades agregará?'));
+for (i = 0; i < cantidad; i++) {
+    addHouse(
+        prompt('Ingrese el nombre').toUpperCase(),
+        prompt('Ingrese el ID').toUpperCase(),
+        prompt('Ingrese la direccion').toUpperCase(),
+        Number(prompt('Ingrese el precio (solo numero)')),
+        prompt('Ingrese el tamaño (numero seguido de m2)').toUpperCase(),
+        Number(prompt('Ingrese la cantidad de habitaciones')));
+    alert(`Propiedad N${i+1} agregada`);
+    let vendida = prompt('¿Está vendida?').toUpperCase();
+    if (vendida == 'SI') {
+        houseList[i].soldStatus();
+    }
+};
+
+console.table(houseList);
