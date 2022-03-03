@@ -527,38 +527,156 @@ for (let contador = 0; contador < maximo; contador++) {
 // const dato1 = new Calculadora(2,3);
 // Calculadora.sumarNum
 
-// const miArray = ['uno', 'dos', 3, 4, true, false, 'hola'];
-// console.log(miArray.reverse());
+//const miArray = ['uno', 'dos', 3, 4, true, false, 'hola'];
+// miArray.forEach((elemento) => {
+//     console.log(elemento);
+// });
+
+//miArray.forEach(elemento => console.log(`este ${elemento}`));
 
 
-class Houses {
-    constructor(name, id, address, price, size, bedrooms, sold = false) {
-        this.name = name;
-        this.id = id;
-        this.address = address;
-        this.price = price;
-        this.size = size;
-        this.bedrooms = bedrooms;
-        this.sold = sold;
+
+
+
+
+
+
+
+/* let numero = 5;
+
+// f() sin retorno
+
+function cambiarNum(a){
+    numero = a;
+}
+
+console.log(numero);
+
+cambiarNum(14);
+
+console.log(numero);
+
+
+// f() con retorno
+
+function suma(a,b){
+     return a+b;
+ }
+ console.log(suma(2,5));
+
+ */
+
+
+// f() en loop
+/* 
+let repeticiones = prompt('cuantos numeros va a ingresar?');
+
+function llamar(valor) {
+    console.log(valor);
+}
+
+for (let i = 0; i < repeticiones; i++){
+    let entrada = prompt('ingrese un numero');
+    llamar(entrada);
+};
+ */
+
+// f() anonima
+/* 
+let llamar = function (parametro) {
+    console.log(parametro);
+}*/
+
+
+// arrow f()
+/* 
+function suma(a, b) {
+    return a + b;
+}
+
+let sumaArrow = (a, b) => a + b; 
+*/
+
+// objetos preECMA5
+
+/* function PersonaOld(nombre, edad, calle) {
+    this.nombre = nombre;
+    this.edad = edad;
+    this.calle = calle;
+    this.hablar = function () {
+        console.log("HOLA SOY " + this.nombre);
+    };
+} */
+
+// objetos posECMA5
+
+// class Persona {
+//     constructor(nombre, edad, calle) {
+//         this.nombre = nombre;
+//         this.edad = edad;
+//         this.calle = calle;
+//     }
+//     hablar() {
+//         console.log(`HOLA SOY " + this.nombre`);
+//     }
+// }
+
+// const persona1 = new Persona("Homero", 39, "Av. Siempreviva 742");
+// const persona2 = new Persona("Marge", 36, "Av. Siempreviva 742");
+
+// persona1.hablar();
+// persona2.hablar();
+
+
+
+
+/* 
+1. INFORMAR NOMBRE DE PINTURAS DISPONIBLES
+2. PEDIR QUE INGRESE EL NOMBRE DE LA QUE LE INTERESA
+    2.1 SI INGRESA OTRA COSA VOLVER A PEDIR
+3.ALERTAR CON DATOS DE LA PINTURA
+4. INFORMAR SI HAY STOCK O SI NO HAY
+    4.1 SI NO HAY PREGUNTAR SI LE INTERESA OTRA OBRA Y VOLVER A PEDIR QUE INGRESE EL NOMBRE
+    4.2 SI HAY STOCK PREGUNTAR SI DESEA COMPRARLA, SI ES ASI ALERTAR EL PRECIO Y LA CONFIRMACION
+    DE LA COMPRA: UD HA COMPRADO CON EXITO LA PINTURA TAL.
+
+
+
+
+*/
+
+// informo al usuario sobre las obras
+alert("Usted esta por comprar obras de la artista Merdeces Llanos!");
+alert("OBRAS: EL CIELO, EL SOL , EL MAR");
+let nombresPintura = prompt("INGRESE EL NOMBRE DE LA PINTURA QUE LE INTERESA").toUpperCase();
+
+// ARRAY
+const obras = [];
+
+// OBJETOS
+class Pinturas {
+    constructor(nombre, tamaño, precio) {
+        this.nombre = nombre;
+        this.tamaño = tamaño;
+        this.precio = precio;
+        this.stock = true;
     }
-    soldStatus() {
-        this.sold = true;
+    datos() {
+        return alert(`La pintura ${this.nombre} tiene una medida de: ${this.tamaño} y un precio de $${this.precio}`);
     }
 }
 
-const houseList = [];
+// CREANDO OBJETOS
+const pintura1 = new Pinturas("el cielo", "2m x 2.15m", 1500);
+const pintura2 = new Pinturas("el sol", "2m x 2.60m", 1650);
+const pintura3 = new Pinturas("el mar", "1m x 1.5m", 1200);
 
-function addHouse(funName, funId, funAddress, funPrice, funSize, funBedrooms) {
-    let house = new Houses(funName, funId, funAddress, funPrice, funSize, funBedrooms);
-    houseList.push(house);
-}
-let house1 = addHouse('village', 4536251, '14 val ST.', 1500000, '100m2', 3);
 
-let house2 = addHouse('mansion', 7658735, '16 val ST.', 2000000, '250m2', 5);
 
-console.log(houseList);
-
-for (const house of houseList) {
-    Houses.soldStatus();
-}
-console.log(houseList);
+if (nombresPintura == "EL CIELO") {
+    alert(pintura1.datos());
+} else if (nombresPintura == "EL SOL") {
+    alert(pintura2.datos());
+} else if (nombresPintura == "EL MAR") {
+    alert(pintura3.datos());
+}else{alert('error de entrada')};
