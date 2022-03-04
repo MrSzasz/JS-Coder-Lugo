@@ -177,6 +177,8 @@ Primera entrega del Proyecto Final
 
 Agregar find() y filter() al proyecto
  */
+
+// Constructor
 class Houses {
     constructor(name, id, address, price, size, bedrooms) {
         this.name = name;
@@ -192,11 +194,15 @@ class Houses {
     }
 }
 
+// Funciones
+
 function addHouse(name, id, address, price, size, bedrooms) {
+    // Funcion para agregar propiedades
     houseList.push(new Houses(name, id, address, price, size, bedrooms));
 }
 
 function findAlert(varFind) {
+    // Funcion para buscar propiedades
     alert(`¡Propiedad encontrada!
                             Nombre: ${varFind.name}
                             ID: ${varFind.id}
@@ -206,21 +212,13 @@ function findAlert(varFind) {
                             Cantidad de habitaciones: ${varFind.bedrooms}`);
 }
 
-
-const houseList = [];
-
-houseList.push(new Houses('BLY MANOR', 'MH1', '13 MAIN ST.', 2200000, '220M2', 8));
-houseList.push(new Houses('NORMAL HOUSE', 'MH2', '24 GREEN SPRING ST.', 1250000, '120M2', 4));
-houseList.push(new Houses('MONO', 'MH3', ' 12 GREEN SPRING ST.', 1320000, '90M2', 2));
-houseList.push(new Houses('EMPTY PLOT', 'MH4', '16 MAIN ST.', 1700000, '195M2', 0));
-
-houseList[2].soldStatus();
-
 function houseNameList() {
+    // Funcion para listar propiedades
     houseList.forEach(element => alert(`Nombre: ${element.name} - ID: ${element.id}`));
 }
 
 function initAddHouse(userName, userID, userDir, userPrice, userSize, userBedrooms) {
+    // Funcion para iniciar la funcion de agregar propiedades pidiendo datos
     addHouse(
         userName,
         userID,
@@ -237,6 +235,7 @@ function initAddHouse(userName, userID, userDir, userPrice, userSize, userBedroo
 }
 
 function funcEraseHouse() {
+    // Funcion para eliminar propiedades
     while (choose == 3) {
         let eraseID = prompt('Ingrese el ID de la casa que quiere eliminar o BACK para volver al menu principal').toUpperCase();
         while (eraseID != 'BACK') {
@@ -257,6 +256,7 @@ function funcEraseHouse() {
 }
 
 function funcSold() {
+    // Funcion para marcar propiedades como vendidas
     while (choose == 5) {
         let houseID = prompt('Ingrese el ID de la casa vendida o BACK para volver').toUpperCase();
         while (houseID != 'BACK') {
@@ -279,13 +279,13 @@ function funcSold() {
 }
 
 function funcFilter() {
+    // Funcion para filtrar propiedades
     while (choose == 6) {
+
         let filterChoice = Number(prompt(`Ingrese: 
     1) Para filtrar por precio.
     2) Para filtrar solo las propiedades disponibles.
     3) Para volver al menu principal`));
-
-
 
         while (!isNaN(filterChoice) && filterChoice != 4 && filterChoice == 1 || filterChoice == 2) {
             if (filterChoice == 1) {
@@ -341,6 +341,18 @@ ID: ${noSold.id}`);
     }
 };
 
+// Arrays
+
+const houseList = [];
+
+houseList.push(new Houses('BLY MANOR', 'MH1', '13 MAIN ST.', 2200000, '220M2', 8));
+houseList.push(new Houses('NORMAL HOUSE', 'MH2', '24 GREEN SPRING ST.', 1250000, '120M2', 4));
+houseList.push(new Houses('MONO', 'MH3', ' 12 GREEN SPRING ST.', 1320000, '90M2', 2));
+houseList.push(new Houses('EMPTY PLOT', 'MH4', '16 MAIN ST.', 1700000, '195M2', 0));
+
+houseList[2].soldStatus();
+
+// Opciones
 
 let choose = 0;
 
@@ -358,15 +370,19 @@ while (choose != 7) {
 
     switch (choose) {
         case 1:
+            // Listar propiedades
             houseNameList();
             break;
         case 2:
+            // Agregar propiedades
             initAddHouse(prompt('Ingrese el nombre').toUpperCase(), prompt('Ingrese el ID').toUpperCase(), prompt('Ingrese la direccion').toUpperCase(), Number(prompt('Ingrese el precio (solo numero)')), prompt('Ingrese el tamaño (numero seguido de m2)').toUpperCase(), Number(prompt('Ingrese la cantidad de habitaciones')));
             break;
         case 3:
+            // Eliminar propiedades
             funcEraseHouse();
             break;
         case 4:
+            // Buscar propiedades
             while (choose == 4) {
                 let nameOrId = Number(prompt('Ingrese 1 para buscar por NOMBRE, 2 para buscar por ID o 3 para volver al menu principal'));
                 while (nameOrId == 1 || nameOrId == 2) {
@@ -400,15 +416,19 @@ while (choose != 7) {
                 }
             };
         case 5:
+            // Vender propiedades
             funcSold();
             break;
         case 6:
+            // Filtrar propiedades
             funcFilter();
             break;
         case 7:
+            // Finalizar
             alert('Gracias por usar nuestros servicios');
             break;
         default:
-            alert('Numero erroneo');
+            // Entrada erronea
+            alert('Entrada erronea');
     }
 }
