@@ -452,6 +452,129 @@ Agregar interaccion del JS con el DOM para modificar el HTML.
 
 */
 
+// class Houses {
+//     constructor(name, id, address, price, size, bedrooms) {
+//         this.name = name;
+//         this.id = id;
+//         this.address = address;
+//         this.price = price;
+//         this.size = size;
+//         this.bedrooms = bedrooms;
+//         this.sold = false;
+//     }
+//     soldStatus() {
+//         this.sold = true;
+//     }
+// }
+
+// function addHouse(name, id, address, price, size, bedrooms) {
+//     houseList.push(new Houses(name, id, address, price, size, bedrooms));
+// }
+
+// const houseList = [];
+
+// houseList.push(new Houses('BLY MANOR', 'MH1', '13 MAIN ST.', 2200000, '220M2', 8));
+// houseList.push(new Houses('NORMAL HOUSE', 'MH2', '24 GREEN SPRING ST.', 1250000, '120M2', 4));
+// houseList.push(new Houses('MONO', 'MH3', ' 12 GREEN SPRING ST.', 1320000, '90M2', 2));
+// houseList.push(new Houses('EMPTY PLOT', 'MH4', '16 MAIN ST.', 1700000, '195M2', 0));
+
+// houseList[2].soldStatus();
+// let confirm;
+// while (confirm != 'SI' && confirm != 'NO') {
+//     confirm = prompt('Bienvenido al gestor de propiedades, ¿Quiere agregar alguna propiedad?').toUpperCase();
+//     if (confirm == 'SI' || confirm == 'YES') {
+//         do {
+//             cantidad = Number(prompt('¿cuantas propiedades agregará?'));
+//             if (!isNaN(cantidad) && cantidad > 0) {
+//                 for (i = 0; i < cantidad; i++) {
+//                     addHouse(
+//                         prompt('Ingrese el nombre').toUpperCase(),
+//                         prompt('Ingrese el ID').toUpperCase(),
+//                         prompt('Ingrese la direccion').toUpperCase(),
+//                         Number(prompt('Ingrese el precio (solo numero)')),
+//                         prompt('Ingrese el tamaño (numero seguido de m2)').toUpperCase(),
+//                         Number(prompt('Ingrese la cantidad de habitaciones')));
+//                     // Cambia el estado de la propiedad
+//                     let vendida = prompt('¿Está vendida?').toUpperCase();
+//                     let lista = (houseList.length) - 1;
+//                     if (vendida == 'SI') {
+//                         houseList[lista].soldStatus();
+//                     }
+//                     alert(`Propiedad N${lista} agregada`);
+//                 };
+//             } else {
+//                 alert('Numero invalido');
+//             }
+//         } while (isNaN(cantidad) || cantidad < 0);
+//     } else if (confirm == 'NO') {
+//         break;
+//     } else {
+//         alert('Entrada erronea');
+//     }
+// }
+
+// // Imprime la cantidad total de elementos (propiedades) en el array
+// console.log('Hay un total de ' + houseList.length + ' propiedades en la lista');
+
+// // Selecciona el id del tang en el HTML
+// let main = document.querySelector('#bodyMain');
+
+// // Crea el elemento <table>
+// let table = document.createElement('table');
+
+// // Le asigna las clases de BS al elemento
+// table.setAttribute('class', 'table table-striped table-dark table-bordered');
+
+// // Le agrega HTML al elemento
+// table.innerHTML = `<thead>
+//                         <tr>
+//                             <th scope="col">Nombre</th>
+//                             <th scope="col">ID</th>
+//                             <th scope="col">Direccion</th>
+//                             <th scope="col">Precio</th>
+//                             <th scope="col">Tamaño</th>
+//                             <th scope="col">Habitaciones</th>
+//                             <th scope="col">Vendida</th>
+//                         </tr>
+//                     </thead>`;
+
+// let tbody = document.createElement('tbody');
+
+// let tr;
+
+// // Por cada elemento del array crea una plantilla
+// houseList.forEach(prop => {
+//     tr = document.createElement('tr');
+
+//     // Crea la plantilla con sus datos del array
+//     tr.innerHTML = `<td>${prop.name}</td>
+//     <td>${prop.id}</td>
+//     <td>${prop.address}</td>
+//     <td>M$${prop.price}</td>
+//     <td>${prop.size}</td>
+//                     <td>${prop.bedrooms}</td>
+//                     <td>${prop.sold}</td>`;
+
+//     // Agrega el <tr> al <tbody>
+//     tbody.appendChild(tr);
+// });
+
+// // Agrega el <tbody> al <table>
+// table.appendChild(tbody);
+
+// // Manda todo al elemento llamado del HTML
+// main.prepend(table);
+
+//  ==============================================  DESAFIO 6  ============================================
+
+/* 
+
+==> INCORPORAR EVENTOS:
+
+Agregar eventos para interactuar con el DOM.
+
+*/
+
 class Houses {
     constructor(name, id, address, price, size, bedrooms) {
         this.name = name;
@@ -468,99 +591,103 @@ class Houses {
 }
 
 function addHouse(name, id, address, price, size, bedrooms) {
-    houseList.push(new Houses(name, id, address, price, size, bedrooms));
+    houseList.unshift(new Houses(name, id, address, price, size, bedrooms));
 }
 
 const houseList = [];
 
-houseList.push(new Houses('BLY MANOR', 'MH1', '13 MAIN ST.', 2200000, '220M2', 8));
-houseList.push(new Houses('NORMAL HOUSE', 'MH2', '24 GREEN SPRING ST.', 1250000, '120M2', 4));
-houseList.push(new Houses('MONO', 'MH3', ' 12 GREEN SPRING ST.', 1320000, '90M2', 2));
-houseList.push(new Houses('EMPTY PLOT', 'MH4', '16 MAIN ST.', 1700000, '195M2', 0));
+houseList.push(new Houses('BLY MANOR', '1635', '13 MAIN ST.', 2200000, '220', 8));
+houseList.push(new Houses('NORMAL HOUSE', '2643', '24 GREEN SPRING ST.', 1250000, '120', 4));
+houseList.push(new Houses('MONO', '22565', ' 12 GREEN SPRING ST.', 1320000, '90', 2));
+houseList.push(new Houses('EMPTY PLOT', '8612', '16 MAIN ST.', 1700000, '195', 0));
 
 houseList[2].soldStatus();
-let confirm;
-while (confirm != 'SI' && confirm != 'NO') {
-    confirm = prompt('Bienvenido al gestor de propiedades, ¿Quiere agregar alguna propiedad?').toUpperCase();
-    if (confirm == 'SI' || confirm == 'YES') {
-        do {
-            cantidad = Number(prompt('¿cuantas propiedades agregará?'));
-            if (!isNaN(cantidad) && cantidad > 0) {
-                for (i = 0; i < cantidad; i++) {
-                    addHouse(
-                        prompt('Ingrese el nombre').toUpperCase(),
-                        prompt('Ingrese el ID').toUpperCase(),
-                        prompt('Ingrese la direccion').toUpperCase(),
-                        Number(prompt('Ingrese el precio (solo numero)')),
-                        prompt('Ingrese el tamaño (numero seguido de m2)').toUpperCase(),
-                        Number(prompt('Ingrese la cantidad de habitaciones')));
-                    // Cambia el estado de la propiedad
-                    let vendida = prompt('¿Está vendida?').toUpperCase();
-                    let lista = (houseList.length) - 1;
-                    if (vendida == 'SI') {
-                        houseList[lista].soldStatus();
-                    }
-                    alert(`Propiedad N${lista} agregada`);
-                };
-            } else {
-                alert('Numero invalido');
-            }
-        } while (isNaN(cantidad) || cantidad < 0);
-    } else if (confirm == 'NO') {
-        break;
-    } else {
-        alert('Entrada erronea');
-    }
-}
 
-// Imprime la cantidad total de elementos (propiedades) en el array
-console.log('Hay un total de ' + houseList.length + ' propiedades en la lista');
-
-// Selecciona el id del tang en el HTML
 let main = document.querySelector('#bodyMain');
 
-// Crea el elemento <table>
-let table = document.createElement('table');
+let table = document.querySelector('#mainTable');
 
-// Le asigna las clases de BS al elemento
-table.setAttribute('class', 'table table-striped table-dark');
-
-// Le agrega HTML al elemento
-table.innerHTML = `<thead>
-                        <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">ID</th>
-                            <th scope="col">Direccion</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Tamaño</th>
-                            <th scope="col">Habitaciones</th>
-                            <th scope="col">Vendida</th>
-                        </tr>
-                    </thead>`;
-
-let tbody = document.createElement('tbody');
+let tbody = document.querySelector('#mainTbody');
 
 let tr;
 
-// Por cada elemento del array crea una plantilla
-houseList.forEach(prop => {
-    tr = document.createElement('tr');
+function createTable() {
+    houseList.slice().reverse().forEach(prop => {
+        tr = document.createElement('tr');
+        tr.innerHTML = `<td>${prop.name}</td>
+        <td>MH${prop.id}</td>
+        <td>${prop.address}</td>
+        <td>M$${prop.price}</td>
+        <td>${prop.size}M2</td>
+        <td>${prop.bedrooms}</td>
+        <td>${prop.sold}</td>`;
 
-    // Crea la plantilla con sus datos del array
-    tr.innerHTML = `<td>${prop.name}</td>
-    <td>${prop.id}</td>
-    <td>${prop.address}</td>
-    <td>M$${prop.price}</td>
-    <td>${prop.size}</td>
-                    <td>${prop.bedrooms}</td>
-                    <td>${prop.sold}</td>`;
+        tbody.prepend(tr);
+        tbody.appendChild(addInput);
+    });
+    table.appendChild(tbody);
 
-    // Agrega el <tr> al <tbody>
-    tbody.appendChild(tr);
-});
+    main.prepend(table);
 
-// Agrega el <tbody> al <table>
-table.appendChild(tbody);
+}
 
-// Manda todo al elemento llamado del HTML
-main.appendChild(table);
+let addInput = document.createElement('tr');
+addInput.innerHTML = `
+                        <td>
+                            <input id="nameUserInput" type="text" class="form-control" id="usr" required placeholder="Ingrese nombre*">
+                        </td>
+                        <td>
+                            <input id="idUserInput" type="number" class="form-control" id="usr" required placeholder="Ingrese ID*">
+                        </td>
+                        <td>
+                            <input id="addressUserInput" type="text" class="form-control" id="usr" required placeholder="Ingrese direccion*">
+                        </td>
+                        <td>
+                            <input id="priceUserInput" type="number" class="form-control" id="usr" required placeholder="Ingrese precio*">
+                        </td>
+                        <td>
+                            <input id="sizeUserInput" type="number" class="form-control" id="usr" required placeholder="Ingrese tamaño*">
+                        </td>
+                        <td>
+                            <input id="bedroomsUserInput" type="number" class="form-control" id="usr" required placeholder="Ingrese habitaciones*">
+                        </td>
+                        <td>
+                                <label class="form-check-label">
+                                    <input id="soldUserInput" class="form-check-input" type="checkbox">Esta vendida
+                                </label>
+                        </td>
+                        `;
+
+createTable();
+
+function getData() {
+    let inputName = document.getElementById('nameUserInput').value.toUpperCase();
+    let inputId = document.getElementById('idUserInput').value.toUpperCase();
+    let inputAddress = document.getElementById('addressUserInput').value.toUpperCase();
+    let inputPrice = document.getElementById('priceUserInput').value;
+    let inputSize = document.getElementById('sizeUserInput').value;
+    let inputBedrooms = document.getElementById('bedroomsUserInput').value;
+    let inputSold = document.getElementById('soldUserInput').checked;
+    if (inputName.trim() != '' && inputId.trim() != '' && inputAddress.trim() != '' && inputPrice.trim() != '' && inputSize.trim() != '' && inputBedrooms.trim() != '') {
+        addHouse(inputName, inputId, inputAddress, inputPrice, inputSize, inputBedrooms);
+        if (inputSold) {
+            houseList[0].soldStatus();
+        }
+        tbody.innerHTML = '';
+        createTable();
+        inputName = document.getElementById('nameUserInput').value = '';
+        inputId = document.getElementById('idUserInput').value = '';
+        inputAddress = document.getElementById('addressUserInput').value = '';
+        inputPrice = document.getElementById('priceUserInput').value = '';
+        inputSize = document.getElementById('sizeUserInput').value = '';
+        inputBedrooms = document.getElementById('bedroomsUserInput').value = '';
+        inputSold = document.getElementById('soldUserInput').checked = false;
+        table.classList.remove('was-validated');
+    } else {
+        alert('Complete todos los campos requeridos');
+        table.classList.add('was-validated');
+    }
+};
+
+let btn = document.querySelector('#subBtn');
+btn.addEventListener('click', getData);
