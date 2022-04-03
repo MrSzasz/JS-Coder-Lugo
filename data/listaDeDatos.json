@@ -1,0 +1,26 @@
+[{
+        "id": 1,
+        "nombre": "leche",
+        "precio": 2000
+    },
+    {
+        "id": 2,
+        "nombre": "cerveza",
+        "precio": 3000
+    },
+    {
+        "id": 3,
+        "nombre": "jugo",
+        "precio": 1000
+    },
+    {
+        "id": 4,
+        "nombre": "papitas",
+        "precio": 3000
+    },
+    {
+        "id": 5,
+        "nombre": "chocolates",
+        "precio": 2000
+    }
+]

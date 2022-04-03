@@ -1,37 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/normalize/normalize.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./main.js"></script>
-</head>
-
-<body>
-    <header></header>
-    <main>
-        <!-- <h1>Conversor de divisas</h1>
-        <p>La nueva moneda que se implementa tiene un valor base de U$D 1,74 por cada <span>M</span>1</p>
-        <form>
-            <input type="text" name="pesos" id="pesos" placeholder="ingrese la cantidad de pesos" required>
-            <button onclick="getValuePesos()">CALCULAR M$</button>
-        </form>
-        <form>
-            <input type="text" name="Marslar" id="marslar" placeholder="ingrese la cantidad de Marslar" required>
-            <button onclick="getValueMarslar()">CALCULAR AR$</button>
-        </form>
-        <p id="returnValue"></p> -->
-    </main>
 
 
+<div id="resultados"></div>
+
+
+<script>
+    let datos = [{
+            id: 1,
+            nombre: "leche",
+            precio: 2000
+        },
+        {
+            id: 2,
+            nombre: "cerveza",
+            precio: 3000
+        },
+        {
+            id: 3,
+            nombre: "jugo",
+            precio: 1000
+        },
+        {
+            id: 4,
+            nombre: "papitas",
+            precio: 3000
+        },
+        {
+            id: 5,
+            nombre: "chocolates",
+            precio: 2000
+        }
+    ]
 
 
 
 
-</body>
 
-</html>
+
+
+
+
+
+
+
+
+    // let getDatos = () => {
+    //     return new Promise((resolve, reject) => {
+    //         resolve(datos)
+    //     })
+    // }
+
+    // async function fetchingData() {
+    //     try {
+    //         let datosFetched = await getDatos();
+    //         console.log(datosFetched)
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
+
+    // fetchingData()
+
+
+
+    let url1 = "./data/listaDeDatos.json"
+    let url2 = "https://pokeapi.co/api/v2/pokemon/ditto"
+
+    function tryfetch() {
+        fetch(url1)
+            .then(res => res.json())
+            .then(data=> console.log(data))
+    }
+
+    tryfetch();
+</script>

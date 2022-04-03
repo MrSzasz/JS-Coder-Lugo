@@ -575,119 +575,170 @@ Agregar eventos para interactuar con el DOM.
 
 */
 
-class Houses {
-    constructor(name, id, address, price, size, bedrooms) {
-        this.name = name;
-        this.id = id;
-        this.address = address;
-        this.price = price;
-        this.size = size;
-        this.bedrooms = bedrooms;
-        this.sold = false;
-    }
-    soldStatus() {
-        this.sold = true;
-    }
+// class Houses {
+//     constructor(name, id, address, price, size, bedrooms) {
+//         this.name = name;
+//         this.id = id;
+//         this.address = address;
+//         this.price = price;
+//         this.size = size;
+//         this.bedrooms = bedrooms;
+//         this.sold = false;
+//     }
+//     soldStatus() {
+//         this.sold = true;
+//     }
+// }
+
+// function addHouse(name, id, address, price, size, bedrooms) {
+//     houseList.unshift(new Houses(name, id, address, price, size, bedrooms));
+// }
+
+// const houseList = [];
+
+// houseList.push(new Houses('BLY MANOR', '1635', '13 MAIN ST.', 2200000, '220', 8));
+// houseList.push(new Houses('NORMAL HOUSE', '2643', '24 GREEN SPRING ST.', 1250000, '120', 4));
+// houseList.push(new Houses('MONO', '22565', ' 12 GREEN SPRING ST.', 1320000, '90', 2));
+// houseList.push(new Houses('EMPTY PLOT', '8612', '16 MAIN ST.', 1700000, '195', 0));
+
+// houseList[2].soldStatus();
+
+// let main = document.querySelector('#bodyMain');
+
+// let table = document.querySelector('#mainTable');
+
+// let tbody = document.querySelector('#mainTbody');
+
+// let tr;
+
+// function createTable() {
+//     houseList.slice().reverse().forEach(prop => {
+//         tr = document.createElement('tr');
+//         tr.innerHTML = `<td>${prop.name}</td>
+//         <td>MH${prop.id}</td>
+//         <td>${prop.address}</td>
+//         <td>M$${prop.price}</td>
+//         <td>${prop.size}M2</td>
+//         <td>${prop.bedrooms}</td>
+//         <td>${prop.sold}</td>`;
+
+//         tbody.prepend(tr);
+//         tbody.appendChild(addInput);
+//     });
+//     table.appendChild(tbody);
+
+//     main.prepend(table);
+
+// }
+
+// let addInput = document.createElement('tr');
+// addInput.innerHTML = `
+//                         <td>
+//                             <input id="nameUserInput" type="text" class="form-control" id="usr" required placeholder="Ingrese nombre*">
+//                         </td>
+//                         <td>
+//                             <input id="idUserInput" type="number" class="form-control" id="usr" required placeholder="Ingrese ID*">
+//                         </td>
+//                         <td>
+//                             <input id="addressUserInput" type="text" class="form-control" id="usr" required placeholder="Ingrese direccion*">
+//                         </td>
+//                         <td>
+//                             <input id="priceUserInput" type="number" class="form-control" id="usr" required placeholder="Ingrese precio*">
+//                         </td>
+//                         <td>
+//                             <input id="sizeUserInput" type="number" class="form-control" id="usr" required placeholder="Ingrese tamaño*">
+//                         </td>
+//                         <td>
+//                             <input id="bedroomsUserInput" type="number" class="form-control" id="usr" required placeholder="Ingrese habitaciones*">
+//                         </td>
+//                         <td>
+//                                 <label class="form-check-label">
+//                                     <input id="soldUserInput" class="form-check-input" type="checkbox">Esta vendida
+//                                 </label>
+//                         </td>
+//                         `;
+
+// createTable();
+
+// function getData() {
+//     let inputName = document.getElementById('nameUserInput').value.toUpperCase();
+//     let inputId = document.getElementById('idUserInput').value.toUpperCase();
+//     let inputAddress = document.getElementById('addressUserInput').value.toUpperCase();
+//     let inputPrice = document.getElementById('priceUserInput').value;
+//     let inputSize = document.getElementById('sizeUserInput').value;
+//     let inputBedrooms = document.getElementById('bedroomsUserInput').value;
+//     let inputSold = document.getElementById('soldUserInput').checked;
+//     if (inputName.trim() != '' && inputId.trim() != '' && inputAddress.trim() != '' && inputPrice.trim() != '' && inputSize.trim() != '' && inputBedrooms.trim() != '') {
+//         addHouse(inputName, inputId, inputAddress, inputPrice, inputSize, inputBedrooms);
+//         if (inputSold) {
+//             houseList[0].soldStatus();
+//         }
+//         tbody.innerHTML = '';
+//         createTable();
+//         inputName = document.getElementById('nameUserInput').value = '';
+//         inputId = document.getElementById('idUserInput').value = '';
+//         inputAddress = document.getElementById('addressUserInput').value = '';
+//         inputPrice = document.getElementById('priceUserInput').value = '';
+//         inputSize = document.getElementById('sizeUserInput').value = '';
+//         inputBedrooms = document.getElementById('bedroomsUserInput').value = '';
+//         inputSold = document.getElementById('soldUserInput').checked = false;
+//         table.classList.remove('was-validated');
+//     } else {
+//         alert('Complete todos los campos requeridos');
+//         table.classList.add('was-validated');
+//     }
+// };
+
+// let btn = document.querySelector('#subBtn');
+// btn.addEventListener('click', getData);
+
+
+// const usuario = {
+//     nombre: "John Doe",
+//     edad: Number(prompt())
+//   }
+
+//   // declaramos y asignamos condicionalmente
+//   const permiso = (usuario.edad >= 18) ? true : false
+
+//   // mostramos el mensaje
+//   permiso ? console.log("Puede comprar cerveza") : console.log("No puede comprar")
+
+// ================ SHOP =================
+// class ConstructorDePersonas {
+//     constructor(nombre, apellido, edad) {
+//         this.nombre = nombre,
+//             this.apellido = apellido,
+//             this.edad = edad;
+//     }
+// }
+
+// let objetosQueQuieroQueVayanAlCarrito = []
+
+// function agregarPersonas(nombrePedido, apellidoPedido, edadPedido) {
+//     objetosQueQuieroQueVayanAlCarrito.push(new ConstructorDePersonas(nombrePedido, apellidoPedido, edadPedido));
+// }
+
+// agregarPersonas(prompt('nombre'), prompt('apellido'), prompt('edad'));
+// agregarPersonas(prompt('nombre'), prompt('apellido'), prompt('edad'));
+// agregarPersonas(prompt('nombre'), prompt('apellido'), prompt('edad'));
+
+
+// //let arrayGuardadoEnStorage = localStorage.setItem('personas', JSON.stringify(objetosQueQuieroQueVayanAlCarrito));
+
+// // ================ CART =============
+
+// let carrito = [];
+// let traerPersonas = JSON.parse(localStorage.getItem('personas'));
+// carrito.push(traerPersonas);
+
+// console.log(carrito)
+
+// //localStorage.clear()
+
+
+let notifier = new AWN();
+for (let i = 0; i < 5; i++) {
+  notifier.tip('All these tips will be closed in 2 seconds');
 }
-
-function addHouse(name, id, address, price, size, bedrooms) {
-    houseList.unshift(new Houses(name, id, address, price, size, bedrooms));
-}
-
-const houseList = [];
-
-houseList.push(new Houses('BLY MANOR', '1635', '13 MAIN ST.', 2200000, '220', 8));
-houseList.push(new Houses('NORMAL HOUSE', '2643', '24 GREEN SPRING ST.', 1250000, '120', 4));
-houseList.push(new Houses('MONO', '22565', ' 12 GREEN SPRING ST.', 1320000, '90', 2));
-houseList.push(new Houses('EMPTY PLOT', '8612', '16 MAIN ST.', 1700000, '195', 0));
-
-houseList[2].soldStatus();
-
-let main = document.querySelector('#bodyMain');
-
-let table = document.querySelector('#mainTable');
-
-let tbody = document.querySelector('#mainTbody');
-
-let tr;
-
-function createTable() {
-    houseList.slice().reverse().forEach(prop => {
-        tr = document.createElement('tr');
-        tr.innerHTML = `<td>${prop.name}</td>
-        <td>MH${prop.id}</td>
-        <td>${prop.address}</td>
-        <td>M$${prop.price}</td>
-        <td>${prop.size}M2</td>
-        <td>${prop.bedrooms}</td>
-        <td>${prop.sold}</td>`;
-
-        tbody.prepend(tr);
-        tbody.appendChild(addInput);
-    });
-    table.appendChild(tbody);
-
-    main.prepend(table);
-
-}
-
-let addInput = document.createElement('tr');
-addInput.innerHTML = `
-                        <td>
-                            <input id="nameUserInput" type="text" class="form-control" id="usr" required placeholder="Ingrese nombre*">
-                        </td>
-                        <td>
-                            <input id="idUserInput" type="number" class="form-control" id="usr" required placeholder="Ingrese ID*">
-                        </td>
-                        <td>
-                            <input id="addressUserInput" type="text" class="form-control" id="usr" required placeholder="Ingrese direccion*">
-                        </td>
-                        <td>
-                            <input id="priceUserInput" type="number" class="form-control" id="usr" required placeholder="Ingrese precio*">
-                        </td>
-                        <td>
-                            <input id="sizeUserInput" type="number" class="form-control" id="usr" required placeholder="Ingrese tamaño*">
-                        </td>
-                        <td>
-                            <input id="bedroomsUserInput" type="number" class="form-control" id="usr" required placeholder="Ingrese habitaciones*">
-                        </td>
-                        <td>
-                                <label class="form-check-label">
-                                    <input id="soldUserInput" class="form-check-input" type="checkbox">Esta vendida
-                                </label>
-                        </td>
-                        `;
-
-createTable();
-
-function getData() {
-    let inputName = document.getElementById('nameUserInput').value.toUpperCase();
-    let inputId = document.getElementById('idUserInput').value.toUpperCase();
-    let inputAddress = document.getElementById('addressUserInput').value.toUpperCase();
-    let inputPrice = document.getElementById('priceUserInput').value;
-    let inputSize = document.getElementById('sizeUserInput').value;
-    let inputBedrooms = document.getElementById('bedroomsUserInput').value;
-    let inputSold = document.getElementById('soldUserInput').checked;
-    if (inputName.trim() != '' && inputId.trim() != '' && inputAddress.trim() != '' && inputPrice.trim() != '' && inputSize.trim() != '' && inputBedrooms.trim() != '') {
-        addHouse(inputName, inputId, inputAddress, inputPrice, inputSize, inputBedrooms);
-        if (inputSold) {
-            houseList[0].soldStatus();
-        }
-        tbody.innerHTML = '';
-        createTable();
-        inputName = document.getElementById('nameUserInput').value = '';
-        inputId = document.getElementById('idUserInput').value = '';
-        inputAddress = document.getElementById('addressUserInput').value = '';
-        inputPrice = document.getElementById('priceUserInput').value = '';
-        inputSize = document.getElementById('sizeUserInput').value = '';
-        inputBedrooms = document.getElementById('bedroomsUserInput').value = '';
-        inputSold = document.getElementById('soldUserInput').checked = false;
-        table.classList.remove('was-validated');
-    } else {
-        alert('Complete todos los campos requeridos');
-        table.classList.add('was-validated');
-    }
-};
-
-let btn = document.querySelector('#subBtn');
-btn.addEventListener('click', getData);
+setTimeout(() => notifier.closeToasts(), 2000);
